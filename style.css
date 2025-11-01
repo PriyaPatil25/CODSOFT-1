@@ -82,7 +82,12 @@ body {
   border: none;
   font-size: 1.5rem;
 }
-
+/* .cv-btn{
+  /* background:#f0cc95; */
+  /* color: white; */
+  /* padding: 8px 15px ; */
+  /* border-radius: 6px; */
+ 
 /* Hero */
 .hero {
   display: flex;
@@ -215,15 +220,16 @@ body {
 
 /* About */
 .about {
-  padding: 4rem 0;
+  text-align: left;
+  padding: 100px 0;
   background: var(--bg-dark);
 }
 
 .about h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.3rem;
   color: var(--primary);
-  margin-bottom: 2rem;
+  margin-bottom: 30px;
 }
 
 .about-grid {
@@ -237,25 +243,30 @@ body {
 }
 
 .about-info {
-  flex: 1;
-  background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    row-gap: 12px;
+    column-gap: 30px;
+    padding: 10px 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 0 auto; 
 }
 
 .info-item {
-  margin-bottom: 1rem;
+    display: contents;
 }
 
 .label {
-  font-weight: 600;
-  display: block;
-  color: var(--primary);
+    font-weight: 600;
+    color: #333;
+    text-align: right;
 }
 
-.value {
-  color: #444;
+.about-info .value {
+  color: #555;
 }
 
 /* Projects */
@@ -366,9 +377,10 @@ body {
   padding: 0.3rem 0;
 }
 
-/* Contact */
+/* Contact Section */
 .contact {
   padding: 4rem 0;
+  background: var(--bg-dark);
 }
 
 .contact h2 {
@@ -381,35 +393,42 @@ body {
 .contact-desc {
   text-align: center;
   margin-bottom: 2rem;
+  color: var(--text-color);
 }
 
+/* Center both sides */
 .contact-grid {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
   flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem; /* equal padding on both sides */
 }
 
+/* Contact Form Box */
 .contact-form {
   flex: 1;
+  min-width: 320px;
   background: var(--card-bg);
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
-.form-group {
-  margin-bottom: 1rem;
-}
-
+/* Inputs & textarea */
 input,
 textarea {
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
   border: 1px solid var(--border-color);
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: var(--font-main);
   font-size: 1rem;
+  transition: var(--transition);
 }
 
 input:focus,
@@ -418,8 +437,32 @@ textarea:focus {
   outline: none;
 }
 
+/* Submit button matches theme */
+.btn-submit {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.btn-submit:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+/* Contact Info Box */
 .contact-info {
   flex: 1;
+  min-width: 320px;
+  text-align: left;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .contact-item {
@@ -428,6 +471,7 @@ textarea:focus {
 
 .contact-item h4 {
   color: var(--secondary);
+  margin-bottom: 0.5rem;
 }
 
 .contact-item a {
@@ -454,23 +498,40 @@ textarea:focus {
 /* Responsive */
 @media (max-width: 768px) {
   .nav-menu {
-    position: fixed;
-    top:60px;
-    left:0;
-    width: 100%;    
+   position: fixed;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    height: calc(100vh - 60px);
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     display: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
   .nav-menu.active {
-   display: flex !important;
+   display: flex ;
   }
-
+ .nav-menu a {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
 .avatar img {
     width: 200px;
     height: 200px;
   }
   .menu-btn {
-    display: block;
+   display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
     color: var(--primary);
+    cursor: pointer;
+    z-index: 1000;
   }
 
   .hero .container {
@@ -485,5 +546,14 @@ textarea:focus {
 
   .skills-grid {
     justify-content: center;
+  }
+   .contact-grid {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .contact-info {
+    text-align: center;
   }
 }

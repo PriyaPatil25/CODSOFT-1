@@ -16,7 +16,13 @@ navLinks.forEach(link => {
     });
 });
 
-// Contact form handler
+// ---------------------------
+// ✅ EMAILJS CONTACT FORM CODE
+// ---------------------------
+(function() {
+    emailjs.init("ytU4aeCJrFBpugdC7"); // <-- replace with your actual Public Key
+})();
+
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -26,25 +32,33 @@ if (contactForm) {
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
-        
+
         if (name === '' || email === '' || message === '') {
-            alert('Please fill all fields');
+            alert('⚠️ Please fill all fields');
             return;
         }
-        
-        if (!email.includes('@')) {
-            alert('Please enter valid email');
-            return;
-        }
-        
-        alert('Thank you ' + name + '! Your message has been sent.');
-        contactForm.reset();
+
+        // EmailJS parameters
+        const params = {
+            from_name: name,
+            from_email: email,
+            message: message
+        };
+
+        emailjs.send("service_reb8l3i", "template_cbemypo", params)
+            .then(() => {
+                alert('✅ Thank you ' + name + '! Your message has been sent successfully.');
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                alert('❌ Failed to send message. Please try again later.');
+            });
     });
 }
 
 // Smooth scrolling for navigation links
 const links = document.querySelectorAll('a[href^="#"]');
-
 links.forEach(link => {
     link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
