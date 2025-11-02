@@ -1,5 +1,4 @@
 /* 🌸 Priyanka Patil - Portfolio Style */
-/* Modern, soft, and elegant look */
 
 :root {
   --primary: #6a5acd; /* soft purple */
@@ -82,12 +81,7 @@ body {
   border: none;
   font-size: 1.5rem;
 }
-/* .cv-btn{
-  /* background:#f0cc95; */
-  /* color: white; */
-  /* padding: 8px 15px ; */
-  /* border-radius: 6px; */
- 
+
 /* Hero */
 .hero {
   display: flex;
@@ -176,7 +170,7 @@ body {
   transform: translateX(-2px);
 }
 
-/* Override for submit button */
+/* submit button */
 .btn-submit {
   background: white;
   color: var(--primary);
@@ -405,7 +399,7 @@ body {
   flex-wrap: wrap;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 2rem; /* equal padding on both sides */
+  padding: 0 2rem; 
 }
 
 /* Contact Form Box */
@@ -437,7 +431,7 @@ textarea:focus {
   outline: none;
 }
 
-/* Submit button matches theme */
+/* Submit button */
 .btn-submit {
   width: 100%;
   background: var(--primary);
